@@ -1,10 +1,29 @@
 const ctx = document.querySelector('.row'); 
 let currentHTML = ctx.innerHTML;
 
-const imageArray = ['img-16-CPC-Padel-Club.jpg', 'img-23-Padelstage-november-2023.png', 'img-4-Casa-Perola-inside.jpeg', 'img-18-CPC-Padel-Club.jpg', 'img-19-Nazare.jpg', 'img-14-CPC-padel-cub.jpg', 'img-20-Nazare-beach.jpg', 'img-25-sunset-nazare.jpg', 'img-8-Casa-Perola-house-pool.jpg', 'img-15-CPC-Padel-Club.jpg', 'img-3-Casa-Perola-house.png', 'img-21-Nazare-boats.jpg', 'img-22-Padelstage-November2023.png', 'img-12-Casa-Perola-Pool.png', 'img-24-Padelstage-maart-2024.jpg', 'img-9-Casa-Perola-Dining-outside.jpg', 'img-1-Padelstage-maart.jpg', 'img-26-Casa-Perola-Room.png'];
+const imageArray = [
+    'img-16-CPC-Padel-Club.jpg', 
+    'img-23-Padelstage-november-2023.png', 
+    'img-4-Casa-Perola-inside.jpeg', 
+    'img-18-CPC-Padel-Club.jpg', 
+    'img-19-Nazare.jpg', 
+    'img-14-CPC-padel-cub.jpg', 
+    'img-20-Nazare-beach.jpg', 
+    'img-25-sunset-nazare.jpg', 
+    'img-8-Casa-Perola-house-pool.jpg', 
+    'img-15-CPC-Padel-Club.jpg', 
+    'img-3-Casa-Perola-house.png', 
+    'img-21-Nazare-boats.jpg', 
+    'img-22-Padelstage-November2023.png', 
+    'img-12-Casa-Perola-Pool.png', 
+    'img-24-Padelstage-maart-2024.jpg', 
+    'img-9-Casa-Perola-Dining-outside.jpg', 
+    'img-1-Padelstage-maart.jpg',
+    'img-26-Casa-Perola-Room.png'
+];
 
 function init() {
-    console.log("Initialization started...");
+    ////console.log("Initialization started...");
     selectAllImages();
 }
 
@@ -16,20 +35,16 @@ function selectAllImages() {
             e.preventDefault();
 
             const imageUrl = e.currentTarget.src; 
-            // const imagePath = imageUrl.split("5500/assets/images/Gallery/")[1];
-            const imagePath = imageUrl.split("https://sam-hoeterickx.github.io/PlayPadelPortugal/assets/images/Gallery/")[1];
 
-            console.log("Image URL:", imageUrl);
-            console.log("Image Path:", imagePath);
+            //console.log("Image URL:", imageUrl);
 
             const imageId = e.currentTarget.id;
             let imageArrayNumber;
 
             for(let i = 0; i <= imageArray.length; i++){
                 if( i == imageId){
-                    console.log(imageId, "id:", i);
+                    // //console.log(imageId, "id:", i);
                     imageArrayNumber = i;
-                    console.log(imagePath);
                     renderImage(i);
                 }
             }          
@@ -62,7 +77,7 @@ function renderImage(i){
     const fullscreenImg = document.querySelector('.fullscreen-img');
     fullscreenImg.onload = () => {
         resizeImage(fullscreenImg);
-        console.log(fullscreenImg);
+        // //console.log(fullscreenImg);
     };
 
     closeButtons();
@@ -79,9 +94,9 @@ function resizeImage(imgElement) {
         maxWidth = window.innerWidth * 0.95;
         maxHeight = window.innerHeight * 0.6;
     }
-    console.log(window.innerHeight, window.innerWidth, maxHeight, maxWidth)
+    //console.log(window.innerHeight, window.innerWidth, maxHeight, maxWidth)
     if (window.innerWidth > 1024) {
-        console.log("Window wider than 1024px, resizing image...", imgElement.width);
+        //console.log("Window wider than 1024px, resizing image...", imgElement.width);
         if (imgElement.width > 2) {
             imgElement.style.width = `${maxWidth}px`;
         }
@@ -91,12 +106,12 @@ function resizeImage(imgElement) {
             // imgElement.style.margin= "0 35px";
         }
     } else if (window.innerWidth < 1024) {
-        console.log("Window width below 1024px, applying different resizing...", maxWidth, maxHeight, imgElement.width, imgElement.height);
+        //console.log("Window width below 1024px, applying different resizing...", maxWidth, maxHeight, imgElement.width, imgElement.height);
         if (imgElement.width > 2) {
             imgElement.style.width = `${maxWidth}px`;
         }
         if (imgElement.height > maxHeight) {
-            console.log(imgElement.height)
+            //console.log(imgElement.height)
             imgElement.style.height = `${maxHeight}px`;
             // imgElement.style.margin= "0 35px";
         }
